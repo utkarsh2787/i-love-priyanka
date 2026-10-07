@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Priyanka</title>
+<meta name="theme-color" content="#2a1233">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐼</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sky" id="sky"></div>
+
+<!-- ================= LOCK SCREEN ================= -->
+<main id="lock" class="screen">
+  <div class="lock-card">
+    <div class="padlock" id="padlock" aria-hidden="true">
+      <svg viewBox="0 0 120 150" width="120" height="150">
+        <path class="shackle" d="M30 70 V48 a30 30 0 0 1 60 0 V70" fill="none" stroke="#f6d27a" stroke-width="12" stroke-linecap="round"/>
+        <rect x="14" y="68" width="92" height="72" rx="16" fill="#f6d27a"/>
+        <rect x="14" y="68" width="92" height="72" rx="16" fill="url(#g)" opacity=".35"/>
+        <circle cx="60" cy="98" r="9" fill="#5a2a5e"/>
+        <rect x="56" y="100" width="8" height="22" rx="4" fill="#5a2a5e"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#b8741a"/></linearGradient></defs>
+      </svg>
+      <span class="lock-panda">🐼</span>
+    </div>
+    <h1 id="lockTitle">Something special is locked 🔒</h1>
+    <p class="lock-sub" id="lockSub">It will open in…</p>
+    <div class="count" id="count">
+      <div><b id="cd">00</b><small>days</small></div>
+      <div><b id="ch">00</b><small>hours</small></div>
+      <div><b id="cm">00</b><small>minutes</small></div>
+      <div><b id="cs">00</b><small>seconds</small></div>
+    </div>
+    <p class="lock-foot" id="lockFoot">Exactly at midnight, 8th October 🎂 — no peeking, my love 🐼</p>
+    <button id="openBtn" class="open-btn" hidden>Open my gift 🎁</button>
+  </div>
+</main>
+
+<!-- ================= DIARY ================= -->
+<main id="diary" class="screen" hidden>
+  <div class="stage">
+    <div class="book" id="book"></div>
+    <div class="hud">
+      <button id="prev" class="nav" aria-label="Previous page">‹</button>
+      <div class="pen"><i id="penFill"></i></div>
+      <button id="next" class="nav" aria-label="Next page">›</button>
+    </div>
+    <div class="pageno" id="pageno"></div>
+    <button id="musicBtn" class="music" aria-label="Toggle music">🎵</button>
+    <p class="hint" id="hint">swipe to turn the page · or just wait, it turns by itself 💗</p>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
