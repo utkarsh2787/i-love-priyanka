@@ -19,7 +19,7 @@ const $ = (id) => document.getElementById(id);
 (function sky() {
   const bits = ["🐼", "💗", "✨", "🌸", "🎋", "💖", "🐼"];
   const el = $("sky");
-  for (let i = 0; i < 18; i++) {
+  for (let i = 0; i < 9; i++) {
     const s = document.createElement("span");
     s.textContent = bits[i % bits.length];
     s.style.left = Math.random() * 100 + "%";
@@ -154,7 +154,7 @@ const video = (src, caption, o = {}) => `
   ${o.date ? `<p class="date">${o.date}</p>` : ""}
   <figure class="polaroid ${o.tall ? "tall" : ""}" style="--r:${o.r ?? 2}deg">
     <div class="vwrap">
-      <video src="assets/vid/${src}#t=0.1" ${o.controls ? "controls" : "muted loop"} playsinline preload="metadata" ${o.main ? 'data-main="1"' : ""}></video>
+      <video data-src="assets/vid/${src}#t=0.1" ${o.controls ? "controls" : "muted loop"} playsinline preload="none" ${o.main ? 'data-main="1"' : ""}></video>
       ${o.controls ? "" : '<button class="snd" type="button">🔇 tap for sound</button>'}
     </div>
     <figcaption>${caption}</figcaption>
@@ -363,10 +363,23 @@ function go(n, instant) {
     el.classList.toggle("turning", false);
   });
   if (instant) els.forEach((el) => (el.style.transition = "none")), void book.offsetWidth, els.forEach((el) => (el.style.transition = ""));
+  updateRange();
   $("pageno").textContent = cur === 0 ? "" : `page ${cur} of ${N - 1}`;
   if (moved && !hintHidden) { hintHidden = true; $("hint").classList.add("gone"); }
   playVisible();
   schedule();
+}
+
+/* Phones struggle with 21 stacked 3D pages + 7 videos, so only keep pages near the current one alive */
+function updateRange() {
+  els.forEach((el, k) => {
+    const d = Math.abs(k - cur);
+    el.style.display = d <= 2 ? "" : "none";
+    el.querySelectorAll("video").forEach((v) => {
+      if (d <= 1 && !v.getAttribute("src")) { v.setAttribute("src", v.dataset.src); v.preload = "metadata"; v.load(); }
+      else if (d > 2 && v.getAttribute("src")) { v.pause(); v.removeAttribute("src"); v.load(); }
+    });
+  });
 }
 
 function playVisible() {
