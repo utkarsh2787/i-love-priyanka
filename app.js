@@ -200,6 +200,12 @@ const PAGES = [
       date: "Jaipur", r: -1.5, note: "No filters needed. Just the two of us, and happiness all over our faces.",
       sticker: stick("💞", "left:2.8em;bottom:.5em") }) },
 
+  /* 4b trip moment */
+  { html: photo("closer.jpg", "The best moment of our whole trip 🤍", {
+      date: "Our trip", r: 2, tall: true,
+      note: "Your head on my shoulder, the whole world gone quiet. This is where I fell deeply, madly in love with you. You're the only person I need in my life. 💗",
+      sticker: stick("💞", "right:.7em;bottom:.6em") }) },
+
   /* 5 love letter */
   { html: `
     <div class="h">How much do I love you?</div>
@@ -258,6 +264,15 @@ const PAGES = [
   { html: video("v1.mp4", "Good morning, sunshine ☀️", {
       date: "Every morning, ideally", r: -2, tall: true, note: "The first thing I want to see every single day. 🌅",
       sticker: stick("☀️", "right:.7em;bottom:.6em") }) },
+
+  /* 15b more pics */
+  { html: `
+    <div class="h">A little complaint 🙈</div>
+    <p class="t">I wanted to add <b>more pics of us</b> like these in this diary, so many more pages full of us...</p>
+    <p class="t">but <b>tumne di hi nahi</b> 😤</p>
+    <p class="t">So these pages are waiting for you. Let's fill the rest of the diary together, one photo at a time. 📸💗</p>
+    <div class="big">🖼️ 🐼 🖼️</div>
+    <div class="sign">${SIGN_OFF}</div>` },
 
   /* 16 exams */
   { html: `
